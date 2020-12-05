@@ -138,7 +138,19 @@ Final_Economy.to_csv("Resources\Economy_Data.csv")
 ```
 
 ## Mongodb
+After getting final data in csv formats I imported the data in Pandas.
+There were some challenges in data like
+1. we have indexed columns which were like "Unnamed : 0. Which had to be removed before upload to Mongo
+2. I had to combine Economy Dataset to Final Dataset, to get Economy as a set of values for each countries, rather having each as separate column.
+3. Finally converted merged Dataframe to json format and uploaded to Mongo
 
+Key challege
+1. Converting a Economy data to a dict to get it as Collection of Colunmns in Mongo DB.
+   ![Economy_Screen.png](Images/Economy_Screen.png)
+2. Merging Final data with column Collection, 1 columns for 13 different columns
+   ![Data_merge.png](Images/Data_merge.png)
+3. Finally data in Mongo
+   ![Mongo_Screen.png](Images/Mongo_Screen.png)
 
 ## Unique data and challenges 
 
