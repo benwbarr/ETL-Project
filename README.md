@@ -27,6 +27,8 @@ The data used was extracted from these sites as CSVs
 
 - https://datacatalog.worldbank.org/dataset/gdp-ranking
 
+- https://www.kaggle.com/mathurinache/world-happiness-report
+
 ## Step 2 - Pull Data into Python
 
 ```python
@@ -44,6 +46,20 @@ GDP_df = pd.read_csv(GDP_file, encoding="ISO-8859-1")
 ```python
 Growth_file = "Resources/Growth.csv"
 Growth_df = pd.read_csv(Growth_file)
+```
+
+```python
+h_2015 = pd.read_csv('ETL-Project/Resources/2015.csv',encoding='utf-8')
+
+h_2016 = pd.read_csv('ETL-Project/Resources/2016.csv',encoding='utf-8')
+
+h_2017 = pd.read_csv('ETL-Project/Resources/2016.csv',encoding='utf-8')
+
+h_2018 = pd.read_csv('ETL-Project/Resources/2016.csv',encoding='utf-8')
+
+h_2019 = pd.read_csv('ETL-Project/Resources/2016.csv',encoding='utf-8')
+
+h_2020 = pd.read_csv('ETL-Project/Resources/2016.csv',encoding='utf-8')
 ```
 
 
@@ -69,6 +85,7 @@ GDP_final.set_index("Country", inplace=True)
 ![alt text](https://github.com/benwbarr/ETL-Project/blob/main/Images/Capture2.PNG?raw=true)
 ![alt text](https://github.com/benwbarr/ETL-Project/blob/main/Images/Capture3.PNG?raw=true)
 
+
 Learned that I could convert df into a series so a drop with a range could be done.
 
 ```python
@@ -76,6 +93,9 @@ Covid_drop = Covid_df.drop(Covid_df.columns[0,], axis = 1)
 Final_Covid_drop = Covid_drop.drop(Covid_drop.columns.to_series()["h1n1_Geographic_spread":"longitude"], axis=1)
 ```
 
+```python
+df['column_name'] = round(df['column_name'],4)
+```
 ![alt text](https://github.com/benwbarr/ETL-Project/blob/main/Images/Capture4.PNG?raw=true)
 
 ### Merging
@@ -87,13 +107,20 @@ merge_final = pd.merge(merge2,Health_final, on = ["Country"])
 
 ![alt text](https://github.com/benwbarr/ETL-Project/blob/main/Images/Capture5.PNG?raw=true)
 
-
 ```python
 data_merge = pd.merge(Final,Covid_final, on = ["Country"])
 ```
 
-
 ![alt text](https://github.com/benwbarr/ETL-Project/blob/main/Images/Capture6.PNG?raw=true)
+
+merging on two keys
+```python
+first_df = pd.merge(h_2015,h_2016, on=['Country','Region'])
+second_df = pd.merge(first_df,h_2017, on=['Country','Region'])
+third_df = pd.merge(second_df, h_2018, on=['Country','Region'])
+fourth_df = pd.merge(third_df, h_2019, on=['Country','Region'])
+fifth_df = pd.merge(fourth_df, h_2020, on=['Country','Region'])
+```
 
 
 ### Exporting
