@@ -93,10 +93,11 @@ Covid_drop = Covid_df.drop(Covid_df.columns[0,], axis = 1)
 Final_Covid_drop = Covid_drop.drop(Covid_drop.columns.to_series()["h1n1_Geographic_spread":"longitude"], axis=1)
 ```
 
+![alt text](https://github.com/benwbarr/ETL-Project/blob/main/Images/Capture4.PNG?raw=true)
+
 ```python
 df['column_name'] = round(df['column_name'],4)
 ```
-![alt text](https://github.com/benwbarr/ETL-Project/blob/main/Images/Capture4.PNG?raw=true)
 
 ### Merging
 ```python
