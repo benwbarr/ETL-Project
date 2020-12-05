@@ -35,7 +35,6 @@ The data used was extracted from these sites as CSVs
 Rankings_file = "Resources/Rankings.csv"
 Rankings_df = pd.read_csv(Rankings_file)
 ```
-Had to look up and reasurch encoding to get this CSV to import properly.
 
 ```python
 GDP_file = "Resources/GDP.csv"
@@ -134,3 +133,10 @@ Final_Economy.to_csv("Resources\Economy_Data.csv")
 ```
 
 ## Mongodb
+
+
+## Unique data and challenges 
+
+- Had to look up and reasurch encoding to get one CSV to import properly.
+
+- Learned that I could convert df into a series so a drop with a range could be done.
